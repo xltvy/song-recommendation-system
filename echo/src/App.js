@@ -6,9 +6,9 @@ import TrackCard from './TrackCard';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Home />
-      {/* <TrackCard /> */}
+      {/* <SpotifyApi /> */}
     </div>
   );
 }

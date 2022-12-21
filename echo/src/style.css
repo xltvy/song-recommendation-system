@@ -1,27 +1,126 @@
 .home-container {
-    background: #000010;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
+  background: #121212;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .echo-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
 }
 
-.recommendations-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+.echo-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 300;
+  text-shadow: 0 0 4px black;
+  font-family: 'Alexandria', sans-serif;
+  width: 260px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: #1db954;
+  z-index: 2;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.track-card {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  margin: 10px;
+  max-width: 333px;
+  max-height: 540px;
+  width: 333px;
+  height: 540px;
+  background-color: #181818;
+  border-radius: 20px;
+  color: whitesmoke;
+  box-shadow: 0px 0px 20px 6px rgba(36, 36, 36, 0.2);
+  z-index: 2;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.track-card:hover {
+  background-color: #282828;
+  box-shadow: 0px 0px 20px 6px rgba(36, 36, 36, 0.4);
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.album-art {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 313px;
+  height: 313px;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.track-title {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.track-artist {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #7d7d7d;
+  z-index: 2;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  z-index: 2;
+  overflow: scroll;
+}
+
+.marquee {
+  color: #1db954;
+  font-family: 'Alexandria', sans-serif;
+  text-shadow: 0 0 20px #1db954;
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 110px;
+  overflow: scroll;
+}
+
+.cards-container {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  height: 900px;
+  z-index: 2;
+  overflow: scroll;
+}
+.loading-spin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+  z-index: 2;
 }
