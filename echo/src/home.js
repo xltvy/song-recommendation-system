@@ -70,7 +70,7 @@ function Home() {
       <HeaderSlider />
       <div className='echo-button-container'>
         <button className='echo-button' onClick={handleClick}>
-          Echo
+          ECHO SONGS
         </button>
         <div className='cards-container'>
           {recommendedTracks}
