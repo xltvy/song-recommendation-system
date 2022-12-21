@@ -34,7 +34,6 @@ function Home() {
                 ))}
             </ul>
             </div>
-            <Track trackId="7ouMYWpwJ422jRcDASZB7P" clientId={process.env.REACT_APP_SPOTIFY_ID} clientSecret={process.env.REACT_APP_SPOTIFY_SECRET} />
         </div>
   );
 }
