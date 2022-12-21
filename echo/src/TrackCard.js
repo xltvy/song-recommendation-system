@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const TrackCard = ({cover, title, artist}) => {
+const TrackCard = ({cover, title, artist, url}) => {
 
   return (
     <div>
-        <div className='track-card'>
+        <a className='track-card' href={url}>
             <div>
-                <img src={cover} className="album-art" alt="album art" height={165} />
+                <img src={cover} className="album-art" alt="album art" height={313} />
             </div>
             <div className='track-info'>
                 <label className='track-title'>
@@ -17,7 +17,7 @@ const TrackCard = ({cover, title, artist}) => {
                     {artist}
                 </label>
             </div>
-        </div>
+        </a>
     </div>
   );
 };

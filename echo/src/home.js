@@ -28,6 +28,15 @@ function Home() {
         })
       );
     });
+    requests.push(
+      axios.get(`https://api.spotify.com/v1/tracks/${track}`, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
+        },
+      })
+    );
     let results = [];
     Promise.all(requests).then((responses) => {
       results = responses.map((response) => response.data);
@@ -50,33 +59,22 @@ function Home() {
       title={data?.name}
       artist={data?.artists[0]?.name}
       cover={data?.album?.images[1]['url']}
+      url={data?.external_urls?.spotify}
     />
   ));
   console.log(trackData[0]);
 
   return (
     <div className='home-container'>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria"></link>
       <HeaderSlider />
       <div className='echo-button-container'>
         <button className='echo-button' onClick={handleClick}>
           Echo
         </button>
-        <ul className='recommendations-list'>
-          {recommendations.map((recommendation) => (
-            <a
-              key={recommendation}
-              href={`https://open.spotify.com/track/${recommendation}`}
-            >
-              https://open.spotify.com/track/{recommendation}
-            </a>
-          ))}
-        </ul>
-        {recommendedTracks}
-        <TrackCard
-          name={'Runaway'}
-          artist={'Kanye West, Pusha T'}
-          cover={track.icon}
-        />
+        <div className='cards-container'>
+          {recommendedTracks}
+        </div>
       </div>
     </div>
   );
