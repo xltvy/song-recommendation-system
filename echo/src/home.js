@@ -68,12 +68,12 @@ function Home() {
         } catch (error) {
           console.error(error);
         }
-    };  
+    };
 
-    const recommendedTracks = trackData.map((recommendation) => (
-        <TrackCard title={recommendation?.name} artist={recommendation?.artists} cover={recommendation?.album?.images[1]} />
-    ));
-    console.log(trackData[0]);
+    // const recommendedTracks = trackData.map((recommendation) => (
+    //     <TrackCard title={recommendation?.name} artist={recommendation?.artists} cover={recommendation?.album?.images[1]} />
+    // ));
+    // console.log(trackData[0]);
 
 
     return (
@@ -86,7 +86,7 @@ function Home() {
                 <a key={recommendation} href={`https://open.spotify.com/track/${recommendation}`}>https://open.spotify.com/track/{recommendation}</a>
                 ))}
             </ul>
-            {recommendedTracks}
+            {/* {recommendedTracks} */}
             <TrackCard name={"Runaway"} artist={"Kanye West, Pusha T"} cover={track.icon} />
             </div>
         </div>
