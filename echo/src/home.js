@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import TrackCard from './TrackCard';
 import HeaderSlider from './HeaderSlider';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 function Home() {
   const [recommendations, setRecommendations] = useState([]);
   const [track, setTrack] = useState({});
   const [trackData, setTrackData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const song_rec_api = axios.create({
     headers: { 'Content-Type': 'application/json' },
@@ -41,10 +43,13 @@ function Home() {
     Promise.all(requests).then((responses) => {
       results = responses.map((response) => response.data);
       setTrackData(results);
+      setLoading(false);
+      console.log(trackData);
     });
   }, [track]);
 
   const handleClick = async () => {
+    setLoading(true);
     try {
       const response = await song_rec_api.get();
       setRecommendations(response.data.recommendations);
@@ -66,14 +71,28 @@ function Home() {
 
   return (
     <div className='home-container'>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria"></link>
+      <link
+        rel='stylesheet'
+        href='https://fonts.googleapis.com/css?family=Alexandria'
+      ></link>
       <HeaderSlider />
       <div className='echo-button-container'>
         <button className='echo-button' onClick={handleClick}>
           ECHO SONGS
         </button>
         <div className='cards-container'>
-          {recommendedTracks}
+          {loading ? (
+            <div className='loading-spin'>
+              <ScaleLoader
+                color='#1bb954'
+                height={140}
+                width={16}
+                radius={80}
+              />{' '}
+            </div>
+          ) : (
+            recommendedTracks
+          )}
         </div>
       </div>
     </div>
