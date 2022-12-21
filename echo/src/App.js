@@ -7,9 +7,8 @@ import SpotifyApi from './SpotifyApi';
 function App() {
   return (
     <div className='App'>
-      {/* <Home /> */}
-      {/* <TrackCard /> */}
-      <SpotifyApi />
+      <Home />
+      {/* <SpotifyApi /> */}
     </div>
   );
 }

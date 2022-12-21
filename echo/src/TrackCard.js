@@ -7,14 +7,16 @@ const TrackCard = (props) => {
     <div>
         <div className='track-card'>
             <div>
-                <img src={props.icon} className="album-art" alt="album art" height={140} />
+                <img src="https://upload.wikimedia.org/wikipedia/tr/f/f0/My_Beautiful_Dark_Twisted_Fantasy.jpg" className="album-art" alt="album art" height={165} />
             </div>
-            <label className='track-title'>
-                {props.name}
-            </label>
-            <label className='track-artist'>
-                {props.artist}
-            </label>
+            <div className='track-info'>
+                <label className='track-title'>
+                    {props.name}
+                </label>
+                <label className='track-artist'>
+                    {props.artist}
+                </label>
+            </div>
         </div>
     </div>
   );
