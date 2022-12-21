@@ -9,6 +9,7 @@ function Home() {
 
     const [recommendations, setRecommendations] = useState([]);
     const [track, setTrack] = useState({});
+    const [trackData, setTrackData] = useState([]);
 
     const song_rec_api = axios.create({
         headers: { 'Content-Type': 'application/json' },
@@ -16,28 +17,49 @@ function Home() {
     });
 
 
-    useEffect(() => {
-      const fetchData = async () => {
-        // Set up authorization headers
-        const trackId = '2Am26UXisQ91vBLYdqd7Pa';
-
-        // Make the API request
-        const response = await fetch(
-          `https://api.spotify.com/v1/tracks/${trackId}`,
-          {
+    useEffect(  () => {
+      const tempTrackData = [];
+      for(let i = 0; i < recommendations.length; i++) {
+         axios
+          .get(`https://api.spotify.com/v1/tracks/${recommendations[i]}`, {
             headers: {
               Accept: 'application/json',
               'Content-Type': 'application/json',
               Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
             },
-          }
-        );
-        await console.log(response.json());
-        // const data = await response.json();
-      };
-  
-      fetchData();
-    }, []);
+          })
+          .then((response) => {
+            // If request is good...
+            tempTrackData.push(response.data);
+            if(i === recommendations.length - 1) {
+              axios
+              .get(`https://api.spotify.com/v1/tracks/${track}`, {
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
+                },
+              })
+              .then((response) => {
+                // If request is good...
+                tempTrackData.push({track: response.data});
+              })
+              .catch((error) => {
+                console.log('error ' + error);
+              });
+            }
+
+          })
+          .catch((error) => {
+            console.log('error ' + error);
+          });
+      }
+
+      setTrackData([...tempTrackData]);
+      console.log(trackData[0]);
+      console.log(tempTrackData);
+    }, [track]);
+
     const handleClick = async () => {
         try {
           const response = await song_rec_api.get();
@@ -46,7 +68,13 @@ function Home() {
         } catch (error) {
           console.error(error);
         }
-    }
+    };  
+
+    const recommendedTracks = trackData.map((recommendation) => (
+        <TrackCard title={recommendation?.name} artist={recommendation?.artists} cover={recommendation?.album?.images[1]} />
+    ));
+    console.log(trackData[0]);
+
 
     return (
         <div className="home-container">
@@ -58,6 +86,7 @@ function Home() {
                 <a key={recommendation} href={`https://open.spotify.com/track/${recommendation}`}>https://open.spotify.com/track/{recommendation}</a>
                 ))}
             </ul>
+            {recommendedTracks}
             <TrackCard name={"Runaway"} artist={"Kanye West, Pusha T"} cover={track.icon} />
             </div>
         </div>

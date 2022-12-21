@@ -89,3 +89,11 @@
     z-index: 2;
     overflow: scroll;
 }
+
+.marquee {
+	color: #1DB954;
+	letter-spacing: 2px;
+	font-weight: 700;
+	padding: 30px;
+	font-size: 40px;
+}

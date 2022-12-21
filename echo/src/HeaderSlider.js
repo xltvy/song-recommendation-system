@@ -1,26 +1,14 @@
 import React from "react";
+import './style.css'
 
 const HeaderSlider = () => {
     return (
-        <div className="header-slider">
-        <div className="header-slider__slide">
-            <div className="header-slider__slide__content">
-            <h1 className="header-slider__slide__content__title">Discover new music</h1>
-            <p className="header-slider__slide__content__description">Echo is a music discovery platform that helps you find new music based on what you already like.</p>
+        <div id="mainmodal">
+            <div class="modalconent">
+                <marquee class = "marquee" behavior="scroll" direction="left" scrollamount="30">
+                    GET RECOMMENDATIONS
+                </marquee>
             </div>
-        </div>
-        <div className="header-slider__slide">
-            <div className="header-slider__slide__content">
-            <h1 className="header-slider__slide__content__title">Discover new music</h1>
-            <p className="header-slider__slide__content__description">Echo is a music discovery platform that helps you find new music based on what you already like.</p>
-            </div>
-        </div>
-        <div className="header-slider__slide">
-            <div className="header-slider__slide__content">
-            <h1 className="header-slider__slide__content__title">Discover new music</h1>
-            <p className="header-slider__slide__content__description">Echo is a music discovery platform that helps you find new music based on what you already like.</p>
-            </div>
-        </div>
         </div>
     );
 };
