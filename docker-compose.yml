@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   app:
-    hostname: frontend
+    hostname: echo
     build:
       context: .
       dockerfile: Dockerfile
