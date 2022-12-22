@@ -1,5 +1,5 @@
 .home-container {
-  background: #121212;
+  background: linear-gradient(180deg, rgba(18,18,18,1) 28%, rgba(21,64,36,1) 83%, rgba(24,107,53,1) 100%);
   justify-content: center;
   align-items: center;
   height: 100vh;
