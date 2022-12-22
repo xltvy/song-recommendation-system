@@ -2,8 +2,8 @@ import React from 'react';
 import './style.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import TrackCard from './TrackCard';
-import HeaderSlider from './HeaderSlider';
+import TrackCard from './TrackCard.js';
+import HeaderSlider from './HeaderSlider.js';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
 function Home() {
